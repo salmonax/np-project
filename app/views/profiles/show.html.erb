@@ -1,0 +1,14 @@
+<% provide :title, "#{@profile.user.name}'s Profile" %>
+
+<ul class="unstyled">
+  <li><strong>First name:</strong> <%= @profile.first_name %></li>
+  <li><strong>Last name:</strong> <%= @profile.last_name %></li>
+  <li><strong>Email:</strong> <%= @profile.email %></li>
+  <li><strong>Bio:</strong> <%= @profile.bio %></li>
+  <li><strong>Organization:</strong> <%= @profile.organization %></li>
+  <li><strong>Website:</strong> <%= @profile.website %></li>
+
+</ul>
+
+<p><%= link_to 'Edit profile', edit_profile_path, :class => 'btn' %></p>
+

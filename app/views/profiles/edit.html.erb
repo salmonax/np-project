@@ -1,0 +1,19 @@
+<% provide :title, 'Edit Profile' %>
+
+<%= form_for @profile do |f| %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <%= f.label :bio %>
+  <%= f.text_area :bio %>
+  <%= f.label :organization %>
+  <%= f.text_area :organization %>
+  <%= f.label :website %>
+  <%= f.text_area :website %>
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+<% end %>
+
+<p><%= link_to 'Cancel', profile_path, :class => 'btn' %></p>
