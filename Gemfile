@@ -13,6 +13,9 @@ gem 'cancan'
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 group :test do
   gem 'capybara'
   gem 'factory_girl_rails'
