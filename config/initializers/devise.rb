@@ -4,8 +4,12 @@ Devise.setup do |config|
 
   require "omniauth-facebook"
 
-  config.omniauth :facebook, "384426225005840", "a29952e097ec038ec7f07b9dfc8d8441"
+  config.omniauth :facebook, ENV['FACEBOOK_ID'], ENV["FACEBOOK_SECRET"]
     {:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
+
+  require "omniauth-google-oauth2"
+  
+  config.omniauth :google_oauth2, ENV["GOOGLE_ID"], ENV["GOOGLE_SECRET"], { access_type: "offline", approval_prompt: "" }
 
 
   # ==> Mailer Configuration

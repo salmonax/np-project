@@ -45,11 +45,29 @@
               </li>
             <% else %>
               <li><%= link_to 'Sign up', new_user_registration_path %></li>
-              <li><%= link_to 'Sign in', new_user_session_path %></li>
-              <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+              <li class='dropdown'>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sign In<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <div class='container-fluid pad_top'>
+                    <%= form_for("user", :url => user_session_path) do |f| %>
+                      <%= f.label 'Email:' %>
+                      <%= f.text_field :email %>
+                      <%= f.label 'Password:' %>
+                      <%= f.password_field :password %>
+                      <%= f.check_box :remember_me  %>
+                      <%= f.label :remember_me, :class => 'make_inline' %>
+                      <%= f.submit 'Sign in', :class => 'btn btn-primary make_block' %>
+                      <%= link_to "Forgot your password?", new_password_path('user') %>
+                    <% end %>
+                  </div>
+                  <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+                  <li><%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %></li>
+                </ul>
+              </li>
             <% end %>
           </ul>
-
+              
+               
 
           <ul class="nav pull-right">
             <li>

@@ -1,3 +1,16 @@
 body {
   padding-top: 50px;
 }
+
+.make_inline {
+  display: inline;  
+}
+
+.make_block {
+  display: block;
+}
+
+.pad_top {
+  padding-top: 10px;
+
+}

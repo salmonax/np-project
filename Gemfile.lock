@@ -74,7 +74,13 @@ GEM
     faraday (0.8.7)
       multipart-post (~> 1.1)
     ffi (1.7.0)
+    foreman (0.62.0)
+      thor (>= 0.13.6)
     formatador (0.2.4)
+    forward (0.3.1)
+      highline (~> 1.6.13)
+      json (~> 1.7.3)
+      net-ssh (~> 2.4.0)
     guard (1.8.0)
       formatador (>= 0.2.4)
       listen (>= 1.0.0)
@@ -85,6 +91,7 @@ GEM
       guard (>= 1.1)
       rspec (~> 2.11)
     hashie (1.2.0)
+    highline (1.6.18)
     hike (1.2.2)
     httpauth (0.2.0)
     i18n (0.6.1)
@@ -92,6 +99,7 @@ GEM
     jquery-rails (2.2.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jruby-pageant (1.1.1)
     json (1.7.7)
     jwt (0.1.8)
       multi_json (>= 1.5)
@@ -117,6 +125,8 @@ GEM
     mime-types (1.23)
     multi_json (1.7.2)
     multipart-post (1.2.0)
+    net-ssh (2.4.0)
+      jruby-pageant (>= 1.0.2)
     nokogiri (1.5.9)
     oauth2 (0.8.1)
       faraday (~> 0.8)
@@ -129,6 +139,9 @@ GEM
       rack
     omniauth-facebook (1.4.1)
       omniauth-oauth2 (~> 1.1.0)
+    omniauth-google-oauth2 (0.1.15)
+      omniauth (~> 1.0)
+      omniauth-oauth2
     omniauth-oauth2 (1.1.1)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
@@ -236,11 +249,14 @@ DEPENDENCIES
   database_cleaner
   devise
   factory_girl_rails
+  foreman
+  forward
   guard-rspec
   jquery-rails
   launchy
   omniauth
   omniauth-facebook
+  omniauth-google-oauth2
   orderly
   pg
   quiet_assets
