@@ -7,6 +7,8 @@ Devise.setup do |config|
   config.omniauth :facebook, "384426225005840", "a29952e097ec038ec7f07b9dfc8d8441"
     {:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
 
+  config.omniauth :twitter, "agPjdXVRc7n2E3nJ3seYjw", "00ueulHkoS8Qk9u7NPENOgw0d20PR8tvklu2LCLRU"
+    {:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,

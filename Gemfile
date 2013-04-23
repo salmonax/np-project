@@ -15,6 +15,8 @@ gem 'twitter-bootstrap-rails'
 
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'twitter'
 
 group :test do
   gem 'capybara'
