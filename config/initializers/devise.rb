@@ -3,11 +3,13 @@
 Devise.setup do |config|
 
   require "omniauth-facebook"
+  require "omniauth-twitter"
+  OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE if Rails.env.development? 
 
   config.omniauth :facebook, "384426225005840", "a29952e097ec038ec7f07b9dfc8d8441"
     {:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
 
-  config.omniauth :twitter, "agPjdXVRc7n2E3nJ3seYjw", "00ueulHkoS8Qk9u7NPENOgw0d20PR8tvklu2LCLRU"
+  config.omniauth :twitter, "6VzVZh1UzsBmdZHjVPXIw", "mXRZrhsYXstg11osx8IJxJkwSmVAUDrHxmYg05M"
     {:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
 
   # ==> Mailer Configuration
