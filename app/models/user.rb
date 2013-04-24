@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:facebook, :twitter]
+         :omniauthable, :omniauth_providers => [:facebook, :google_oauth2, :twitter]
+
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :name, :username
@@ -21,32 +22,6 @@ class User < ActiveRecord::Base
       self.email
     end
   end
-
-  # def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
-  #   user = User.where(:provider => auth.provider, :uid => auth.uid).first
-  #   unless user
-  #     user = User.create(name:auth.extra.raw_info.name,
-  #                          provider:auth.provider,
-  #                          uid:auth.uid,
-  #                          email:auth.info.email,
-  #                          password:Devise.friendly_token[0,20]
-  #                          )
-  #   end
-  #   user
-  # end
-
-  # def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
-  #   user = User.where(:provider => auth.provider, :uid => auth.uid).first
-  #   unless user
-  #     user = User.create(name:auth.extra.raw_info.name,
-  #                          provider:auth.provider,
-  #                          uid:auth.uid,
-  #                          email:auth.info.email,
-  #                          password:Devise.friendly_token[0,20]
-  #                          )
-  #   end
-  #   user
-  # end
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
@@ -77,6 +52,19 @@ class User < ActiveRecord::Base
     else
       super
     end
+  end
+
+  def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
+      data = access_token.info
+      user = User.where(:email => data["email"]).first
+
+      unless user
+          user = User.create(name: data["name"],
+               email: data["email"],
+               password: Devise.friendly_token[0,20]
+              )
+      end
+      user
   end
 
   private

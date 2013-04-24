@@ -9,14 +9,16 @@ gem 'pg'
 gem 'thin'
 gem 'devise'
 gem 'cancan'
+gem 'forward'
+gem 'foreman'
 
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
-gem 'twitter'
 
 group :test do
   gem 'capybara'
@@ -26,7 +28,6 @@ group :test do
   gem 'orderly'
   gem 'database_cleaner'
 end
-
 
 group :test, :development do
   gem 'rspec-rails'
