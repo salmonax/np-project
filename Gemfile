@@ -13,7 +13,7 @@ gem 'forward'
 gem 'foreman'
 
 gem 'jquery-rails'
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', :git => "git://github.com/seyhunak/twitter-bootstrap-rails.git", :branch => "static"
 
 gem 'omniauth'
 gem 'omniauth-facebook'
